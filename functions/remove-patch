@@ -1,0 +1,14 @@
+remove-patch()
+{
+  REPO_NAME=$1
+  BASE_BRANCH=$2
+  PATCH_NUM=$3
+  git fetch https://github.com/harman-red-square/$REPO_NAME.git +$BASE_BRANCH:refs/remotes/RSPR/$BASE_BRANCH
+  git fetch https://github.com/harman-red-square/$REPO_NAME.git +refs/pull/$PATCH_NUM/head:refs/remotes/RSPR/pr/$PATCH_NUM/head
+  FILES=( $(git diff $(git merge-base RSPR/pr/$PATCH_NUM/head RSPR/$BASE_BRANCH) RSPR/pr/$PATCH_NUM/head --name-only) )
+  for i in ${!FILES[@]}
+  do
+    git reset HEAD -- ${FILES[i]}
+  done
+  echo PR $PATCH_NUM removed.
+}

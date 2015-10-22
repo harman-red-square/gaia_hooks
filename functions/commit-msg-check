@@ -1,0 +1,11 @@
+commit_message_check()
+{
+  COMMIT_MESSAGE_FILE=$1
+  IFS='
+'
+  TOP=( $(head -2 "$COMMIT_MESSAGE_FILE") )
+  if [ -n "${TOP[1]}" ]
+  then
+    return 1
+  fi
+}

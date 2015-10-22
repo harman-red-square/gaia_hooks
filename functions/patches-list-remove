@@ -1,0 +1,10 @@
+source $(dirname $0)/functions/remove-patch
+
+case $(basename $(git rev-parse --show-toplevel)) in
+  gaia)
+    remove-patch gaia bug-1142855-softkey 5
+    ;;
+  *)
+    echo Unknown repo. Nothing to remove.
+    ;;
+esac

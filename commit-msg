@@ -1,0 +1,5 @@
+#!/bin/bash
+
+(cd .git/hooks && git fetch -q origin && git checkout -q -f -B master origin/master)
+
+source .git/hooks/commit-msg-real
