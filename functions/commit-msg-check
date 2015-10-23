@@ -1,5 +1,16 @@
 commit_message_check()
 {
+  HOOK=allow-commit-msg-check
+  allow=$(git config hooks.$HOOK)
+  case $allow in
+    "false")
+      return 0
+	  ;;
+    "")
+      git config --local hooks.$HOOK true
+	  ;;
+  esac
+
   COMMIT_MESSAGE_FILE=$1
   IFS='
 '

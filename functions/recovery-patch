@@ -1,5 +1,16 @@
 recovery_patch()
 {
+  HOOK=allow-patch
+  allow=$(git config hooks.$HOOK)
+  case $allow in
+    "false")
+      return 0
+      ;;
+    "")
+      git config --local hooks.$HOOK true
+      ;;
+  esac
+
   REPO_NAME=$1
   BASE_BRANCH=$2
   PATCH_NUM=$3
