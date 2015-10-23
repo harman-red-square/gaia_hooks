@@ -30,6 +30,20 @@ cd ../..
 So files changed in patch will not be added into your commit.
 Please pay attention!
 
+**How to turn ON/Off git hooks by Git Config**
+
+Turn ON/OFF 'commit message checker' hook
+```
+git config --local hooks.allow-commit-msg-check true
+git config --local hooks.allow-commit-msg-check false
+```
+Turn ON/OFF 'adding temp patch' hook
+
+```
+git config --local hooks.allow-patch true
+git config --local hooks.allow-patch false
+```
+
 **How to remove git hooks for Gaia**
 
 from B2G/gaia folder
