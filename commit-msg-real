@@ -3,7 +3,6 @@ source $(dirname $0)/functions/commit-msg-check
 commit_message_check $1
 if [ $? -ne 0 ]
 then
-  echo Second string is not empty.
   echo Commit is rejected.
   source $(dirname $0)/functions/patches-list-recovery
   exit 1

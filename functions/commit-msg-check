@@ -12,11 +12,27 @@ commit_message_check()
   esac
 
   COMMIT_MESSAGE_FILE=$1
+  RET=0
+
   IFS='
 '
   TOP=( $(head -2 "$COMMIT_MESSAGE_FILE") )
+  unset IFS
+
+  REGEXP0="Bug [1-9][0-9]* - .*$"
+  if [ $(expr match "${TOP[0]}" "$REGEXP0") -eq 0 ]
+  then
+    echo String 1 is not following the template:
+	echo \"Bug 123456 - Short description\"
+	RET=1
+  fi
+
   if [ -n "${TOP[1]}" ]
   then
-    return 1
+    echo String 2 is not following the template:
+    echo It should be empty.
+    RET=1
   fi
+
+  return $RET
 }
