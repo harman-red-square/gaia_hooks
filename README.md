@@ -17,7 +17,7 @@ from B2G/gaia folder
 cd .git/hooks
 git init
 git remote add origin https://github.com/harman-red-square/hooks.git
-rm -rf pre-commit
+rm -f pre-commit
 git pull origin master
 cd ../..
 ```
