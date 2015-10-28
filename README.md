@@ -21,8 +21,7 @@ rm -f pre-commit
 git pull origin master
 cd ../..
 ```
-
-#"rm -f pre-commit" this is temp 
+**"rm -f pre-commit" this is temp**
 
 2) Apply patch on clean branch (Bug 1142855 - Implement softkey feature on the simple phone from https://github.com/harman-red-square/gaia/pull/5)
 ```
