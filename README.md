@@ -17,9 +17,11 @@ from B2G/gaia folder
 cd .git/hooks
 git init
 git remote add origin https://github.com/harman-red-square/hooks.git
+rm -rf pre-commit
 git pull origin master
 cd ../..
 ```
+#"rm -rf pre-commit" this is temp 
 
 2) Apply patch on clean branch (Bug 1142855 - Implement softkey feature on the simple phone from https://github.com/harman-red-square/gaia/pull/5)
 ```
@@ -30,7 +32,7 @@ cd ../..
 So files changed in patch will not be added into your commit.
 Please pay attention!
 
-**How to turn ON/Off git hooks by Git Config**
+**How to turn ON/OFF git hooks by Git Config**
 
 Turn ON/OFF 'commit message checker' hook
 ```
