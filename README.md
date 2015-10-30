@@ -55,7 +55,9 @@ git config --local hooks.allow-patch false
 ```
 
 3) Post commit coding style check (git_diff_to_lint.sh)
+
 Script "git_diff_to_lint.sh" helps to check changes made by existing commit by Lint.
+
 Usage:
     
 ```
