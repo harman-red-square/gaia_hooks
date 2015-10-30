@@ -3,3 +3,5 @@
 (cd .git/hooks && git fetch -q origin && git checkout -q -f -B master origin/master)
 
 source .git/hooks/pre-commit-real
+
+source tools/pre-commit
