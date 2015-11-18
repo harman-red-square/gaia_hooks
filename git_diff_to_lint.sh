@@ -1,5 +1,7 @@
 #!/bin/sh
 
+(cd .git/hooks && git fetch -q origin && git checkout -q -f -B master origin/master)
+
 BASELINE=$1
 BRANCH=$2
 
