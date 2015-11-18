@@ -87,7 +87,7 @@ then
   if [ $gjslint_result -ne 0 -o $jshint_result -ne 0 ] ; then
     echo "There were errors while linting the files, please see above."
     test $jshint_result -ne 0 && jshint_information
-    exit 1
+#    exit 1
   fi
 fi
 
@@ -107,12 +107,16 @@ then
   env GAIA_DIR=$(pwd) $XULRUNNER_SDK $XPCSHELL_SDK \
     -f build/xpcshell-commonjs.js \
     -e "quit(require('csslint').lint('$(pwd)', '$css_changed_files'));"
-
-  if [ $? -ne 0 ]
+  css_result=$?
+  if [ $css_result -ne 0 ]
   then
     echo "There were errors while linting the files, please see above."
-    exit 1
+#    exit 1
   fi
 fi
+
+  if [ $gjslint_result -ne 0 -o $jshint_result -ne 0 -o $css_result -ne 0 ] ; then
+      exit 1
+  fi
 
 echo "No errors - committing"
