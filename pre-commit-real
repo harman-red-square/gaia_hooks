@@ -1,1 +1,9 @@
 source $(dirname $0)/functions/patches-list-remove
+
+(tools/pre-commit)
+if [ $? -ne 0 ]
+then
+  echo Commit is rejected.
+  source $(dirname $0)/functions/patches-list-recovery
+  exit 1
+fi
